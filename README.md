@@ -1,17 +1,25 @@
-# vehicle_environment_control
+# Vehicle Environment Control System
 
-A new Flutter project.
+## Overview
 
-## Getting Started
+The Vehicle Environment Control System is an Arduino-based vehicle safety and environment monitoring system controlled through a Flutter mobile application.
 
-This project is a starting point for a Flutter application.
+The system monitors the vehicle environment and provides automatic responses when dangerous conditions are detected.
 
-A few resources to get you started if this is your first Flutter project:
+## System Architecture
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```text
+Flutter Mobile App
+        |
+      USB OTG
+        |
+    Arduino UNO
+        |
+  -------------------------
+  |       |       |       |
+ DHT11   LM35   Flame   Outputs
+ Sensor Sensor  Sensor
+                  |
+          ----------------
+          |      |       |
+        Relay  Buzzer   RGB LED
