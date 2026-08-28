@@ -1,11 +1,32 @@
+```dart
 import 'package:flutter/material.dart';
 
-import 'screens/home_screen.dart';
-import 'screens/security_screen.dart';
 import 'screens/lighting_screen.dart';
-import 'screens/driver_monitoring_screen.dart';
 import 'screens/parking_screen.dart';
+import 'screens/security_screen.dart';
+import 'screens/driver_monitoring_screen.dart';
 import 'screens/environment_screen.dart';
+
+void main() {
+  runApp(const VehicularApp());
+}
+
+class VehicularApp extends StatelessWidget {
+  const VehicularApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Vehicular Control System',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.blue,
+      ),
+      home: const HomeScreen(),
+    );
+  }
+}
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,9 +37,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'VEHICULAR CONTROL SYSTEM',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -26,75 +45,36 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            const SizedBox(height: 10),
-
-            const Icon(
-              Icons.directions_car,
-              size: 85,
-              color: Colors.blue,
-            ),
-
-            const SizedBox(height: 10),
-
-            const Text(
-              'VEHICULAR CONTROL SYSTEM',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
-            Text(
-              'Integrated Vehicle Monitoring & Control',
-              style: TextStyle(
-                color: Colors.grey.shade600,
-                fontSize: 15,
-              ),
-            ),
-
-            const SizedBox(height: 25),
-
-            // SYSTEM STATUS
             Card(
-              elevation: 3,
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
                     const Icon(
-                      Icons.settings_remote,
-                      size: 45,
-                      color: Colors.green,
+                      Icons.directions_car,
+                      size: 60,
                     ),
-
                     const SizedBox(height: 10),
-
                     const Text(
-                      'SYSTEM STATUS',
+                      'VEHICULAR SYSTEM',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-
-                    const SizedBox(height: 8),
-
+                    const SizedBox(height: 10),
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20,
                         vertical: 10,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.green.withOpacity(0.12),
+                        color: Colors.green.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: const Text(
-                        'SYSTEM READY',
+                        'SYSTEM NORMAL',
                         style: TextStyle(
-                          color: Colors.green,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -106,7 +86,6 @@ class HomeScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // ARDUINO CONNECTION
             Card(
               child: ListTile(
                 leading: const Icon(
@@ -115,36 +94,24 @@ class HomeScreen extends StatelessWidget {
                 ),
                 title: const Text(
                   'Arduino Connection',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                subtitle: const Text(
-                  'Simulation mode',
-                ),
+                subtitle: const Text('Not connected'),
                 trailing: ElevatedButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                          'Arduino connection will be added next.',
-                        ),
-                      ),
-                    );
-                  },
+                  onPressed: () {},
                   child: const Text('CONNECT'),
                 ),
               ),
             ),
 
-            const SizedBox(height: 25),
+            const SizedBox(height: 20),
 
             const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'VEHICLE SYSTEMS',
                 style: TextStyle(
-                  fontSize: 21,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -156,7 +123,7 @@ class HomeScreen extends StatelessWidget {
               context,
               Icons.lightbulb,
               'SMART LIGHTING',
-              'Automatic lighting and brightness control',
+              'Vehicle lighting control',
               const SmartLightingScreen(),
             ),
 
@@ -172,15 +139,15 @@ class HomeScreen extends StatelessWidget {
               context,
               Icons.security,
               'VEHICLE SECURITY',
-              'Anti-theft and vibration monitoring',
+              'Anti-theft and security system',
               const SecurityScreen(),
             ),
 
             systemCard(
               context,
-              Icons.monitor_heart,
+              Icons.person,
               'DRIVER MONITORING',
-              'Driver health and alert monitoring',
+              'Driver monitoring and alerts',
               const DriverMonitoringScreen(),
             ),
 
@@ -188,29 +155,9 @@ class HomeScreen extends StatelessWidget {
               context,
               Icons.thermostat,
               'ENVIRONMENT CONTROL',
-              'Cabin, engine temperature, humidity and fire',
+              'Temperature, humidity and flame',
               const EnvironmentScreen(),
             ),
-
-            const SizedBox(height: 25),
-
-            const Text(
-              'VEHICULAR CONTROL SYSTEM',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(height: 5),
-
-            Text(
-              'LUTWAMA JOEL MARTHAN',
-              style: TextStyle(
-                color: Colors.grey.shade600,
-              ),
-            ),
-
-            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -226,10 +173,8 @@ class HomeScreen extends StatelessWidget {
   ) {
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
-      elevation: 2,
       child: ListTile(
         contentPadding: const EdgeInsets.all(12),
-
         leading: CircleAvatar(
           radius: 28,
           child: Icon(
@@ -237,7 +182,6 @@ class HomeScreen extends StatelessWidget {
             size: 30,
           ),
         ),
-
         title: Text(
           title,
           style: const TextStyle(
@@ -245,14 +189,8 @@ class HomeScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-
         subtitle: Text(subtitle),
-
-        trailing: const Icon(
-          Icons.arrow_forward_ios,
-          size: 18,
-        ),
-
+        trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
           Navigator.push(
             context,
@@ -265,3 +203,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+```
