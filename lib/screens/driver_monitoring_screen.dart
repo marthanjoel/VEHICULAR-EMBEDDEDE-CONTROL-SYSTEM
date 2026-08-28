@@ -1,3 +1,4 @@
+```dart
 import 'package:flutter/material.dart';
 
 class DriverMonitoringScreen extends StatefulWidget {
@@ -79,7 +80,6 @@ class _DriverMonitoringScreenState
         ),
         centerTitle: true,
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -122,9 +122,7 @@ class _DriverMonitoringScreenState
                     size: 65,
                     color: Colors.white,
                   ),
-
                   const SizedBox(height: 10),
-
                   Text(
                     driverStatus,
                     style: const TextStyle(
@@ -142,9 +140,7 @@ class _DriverMonitoringScreenState
             MonitoringCard(
               icon: Icons.favorite,
               title: 'HEART RATE',
-              value: isMonitoring
-                  ? '$heartRate BPM'
-                  : '-- BPM',
+              value: isMonitoring ? '$heartRate BPM' : '-- BPM',
               status: !isMonitoring
                   ? 'NOT MONITORED'
                   : heartRateNormal
@@ -182,9 +178,7 @@ class _DriverMonitoringScreenState
             MonitoringCard(
               icon: Icons.person,
               title: 'HEAD POSITION',
-              value: headTiltDetected
-                  ? 'TILTED'
-                  : 'NORMAL',
+              value: headTiltDetected ? 'TILTED' : 'NORMAL',
               status: !isMonitoring
                   ? 'NOT MONITORED'
                   : headTiltDetected
@@ -205,9 +199,7 @@ class _DriverMonitoringScreenState
               child: ElevatedButton.icon(
                 onPressed: toggleMonitoring,
                 icon: Icon(
-                  isMonitoring
-                      ? Icons.stop
-                      : Icons.play_arrow,
+                  isMonitoring ? Icons.stop : Icons.play_arrow,
                 ),
                 label: Text(
                   isMonitoring
@@ -252,9 +244,7 @@ class _DriverMonitoringScreenState
                                   });
                                 }
                               : null,
-                          child: const Text(
-                            'NORMAL HEART',
-                          ),
+                          child: const Text('NORMAL HEART'),
                         ),
 
                         ElevatedButton(
@@ -265,9 +255,7 @@ class _DriverMonitoringScreenState
                                   });
                                 }
                               : null,
-                          child: const Text(
-                            'HIGH HEART',
-                          ),
+                          child: const Text('HIGH HEART'),
                         ),
 
                         ElevatedButton(
@@ -279,9 +267,7 @@ class _DriverMonitoringScreenState
                                   });
                                 }
                               : null,
-                          child: const Text(
-                            'TOGGLE TILT',
-                          ),
+                          child: const Text('TOGGLE TILT'),
                         ),
                       ],
                     ),
@@ -318,7 +304,7 @@ class MonitoringCard extends StatelessWidget {
       child: ListTile(
         contentPadding: const EdgeInsets.all(16),
         leading: CircleAvatar(
-          backgroundColor: color.withOpacity(0.12),
+          backgroundColor: color.withValues(alpha: 0.12),
           child: Icon(
             icon,
             color: color,
@@ -343,3 +329,4 @@ class MonitoringCard extends StatelessWidget {
     );
   }
 }
+```
