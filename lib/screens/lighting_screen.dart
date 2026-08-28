@@ -1,4 +1,3 @@
-```dart
 import 'package:flutter/material.dart';
 
 class SmartLightingScreen extends StatefulWidget {
@@ -51,6 +50,7 @@ class _SmartLightingScreenState
         ),
         centerTitle: true,
       ),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -80,7 +80,7 @@ class _SmartLightingScreenState
                 padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.directions_car,
                       size: 90,
                       color: Colors.blue,
@@ -299,7 +299,7 @@ class _SmartLightingScreenState
         boxShadow: lightsOn
             ? [
                 BoxShadow(
-                  color: Colors.yellow.withValues(alpha: 0.5),
+                  color: Colors.yellow.withOpacity(0.5),
                   blurRadius: 25,
                   spreadRadius: 10,
                 ),
@@ -314,4 +314,3 @@ class _SmartLightingScreenState
     );
   }
 }
-```
