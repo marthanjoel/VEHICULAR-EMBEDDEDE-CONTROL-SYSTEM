@@ -1,3 +1,4 @@
+```dart
 import 'package:flutter/material.dart';
 
 class EnvironmentScreen extends StatefulWidget {
@@ -8,8 +9,7 @@ class EnvironmentScreen extends StatefulWidget {
       _EnvironmentScreenState();
 }
 
-class _EnvironmentScreenState
-    extends State<EnvironmentScreen> {
+class _EnvironmentScreenState extends State<EnvironmentScreen> {
   bool systemOn = false;
 
   double cabinTemperature = 25.0;
@@ -88,7 +88,6 @@ class _EnvironmentScreenState
         ),
         centerTitle: true,
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -385,7 +384,7 @@ class EnvironmentCard extends StatelessWidget {
         contentPadding: const EdgeInsets.all(16),
 
         leading: CircleAvatar(
-          backgroundColor: color.withOpacity(0.12),
+          backgroundColor: color.withValues(alpha: 0.12),
           child: Icon(
             icon,
             color: color,
@@ -413,4 +412,4 @@ class EnvironmentCard extends StatelessWidget {
     );
   }
 }
-
+```
